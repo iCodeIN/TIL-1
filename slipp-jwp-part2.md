@@ -7,7 +7,7 @@
 
 
     A typical Mustache template:
-    
+
     Hello {{name}}
     You have just won {{value}} dollars!
     {{#in_ca}}
@@ -37,3 +37,10 @@
 *   옛날엔 VO의 필요성을 전혀 이해하지 못했는데, 실습하면서 소중함? 편리함?을 알게 되었다.
 *   return에서 `redirect:/` 이용하면 다른곳으로 보낼 수 있다. (회원 가입 완료 후 list로 보낸다던지)
 
+
+
+
+### 첫번째 반복
+
+*   동영상 보면서 따라하고 메모할 때는 잘 기억했다고 생각했는데, 하루 쭉 쉬고 다시 해보니까 헷갈리는게 좀 있었다. 역시 의식적인 반복이 중요하다.
+*   mustache 연습하는게 재밌음!
