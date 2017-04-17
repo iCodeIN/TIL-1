@@ -151,8 +151,7 @@
 (sqrt2 1e13)
 
 ;----------------------------
-;1.7
-;(sqrt 0.00002)
+;1.8
 
 (define (cuberoot x)
   (cuberoot-iter 1.0 0.0 x))
