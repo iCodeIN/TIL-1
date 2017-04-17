@@ -94,3 +94,79 @@
 (test 0 (p))
 
 ;execute failed
+
+#lang planet neil/sicp
+
+(define (square x)
+  (* x x))
+
+(define (new-if predicate then-clause else-clause)
+  (cond (predicate then-clause)
+        (else else-clause)))
+
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x)
+                 x)))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+;----------------------------
+;1.6
+;new-if로 바꾸게 되면 stack에 sqrt-iter가 계속 쌓이게 되고, 무한루프 발생
+(sqrt 9)
+
+;----------------------------
+;1.7
+;(sqrt 0.00002)
+;아주 큰 수를 구하려고 시도하면 나중에 가서 guess와 x의 차이가 유효숫자의 자리수 범위를 넘어서게 되어 무한재귀 발생
+;아주 작은 수는 0.001보다 작아서 계산을 못함
+
+
+(define (sqrt2 x)
+  (sqrt-iter2 1.0 0.0 x))
+
+(define (sqrt-iter2 guess prev-guess x)
+  (if (good-enough2? guess prev-guess)
+      guess
+      (sqrt-iter2 (improve guess x)
+                  guess
+                 x)))
+
+(define (good-enough2? guess prev-guess)
+  (< (/ (abs (- guess prev-guess)) guess) 0.001))
+
+(sqrt2 0.00000002)
+(sqrt2 1e13)
+
+;----------------------------
+;1.7
+;(sqrt 0.00002)
+
+(define (cuberoot x)
+  (cuberoot-iter 1.0 0.0 x))
+
+(define (cuberoot-iter guess prev-guess x)
+  (if (good-enough2? guess prev-guess)
+      guess
+      (cuberoot-iter (improve-cube guess x)
+                     guess
+                     x)))
+
+(define (improve-cube guess x)
+  (/ (+ (/ x (square guess))
+        (* 2 guess))
+        3))
+
+(cuberoot 64)
