@@ -32,3 +32,21 @@ public static int binarySearch(String[] items, String target, int begin, int end
 }
 ```
 
+
+
+#### Maze Problem ([Code](https://github.com/joshua-qa/practice-java/blob/master/inflearn/Recursion/Maze.java))
+
+```
+boolean findPath(x,y)
+	if (x,y) is either on the wall or a visited cell
+		return false;
+	else if (x,y) is the exit
+		return true;
+	else
+		mark (x,y) as a visited cell;
+		for each neighbouring cell (x`,y`) of (x,y) do
+			if findPath(x`,y`)
+				return true;
+		return false;
+```
+
