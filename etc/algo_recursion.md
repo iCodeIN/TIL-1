@@ -128,3 +128,18 @@ O#######
 ###O####
 ```
 
+
+
+#### Powerset
+
+```
+powerSet(S) // Mission : S의 멱집합 출력하기
+if S is an empty set
+	print nothing;
+else
+	let t be the first element of S;
+	find all subsets of S-{t} by calling powerset(S-{t});
+	print the subsets;
+	print the subsets with adding t;
+```
+
