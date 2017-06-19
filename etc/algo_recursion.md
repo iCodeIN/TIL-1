@@ -132,14 +132,17 @@ O#######
 
 #### Powerset
 
+*   {a,b,c,d,e,f}의 모든 부분집합을 구하려면?
+    *   {b,c,d,e,f}의 모든 부분집합에 {a}를 추가한 집합들을 나열하려면..
+    *   {c,d,e,f}의 모든 부분집합들에 {a}를 추가한 집합들을 나열하고 {c,d,e,f}의 모든 부분집합들에 {a,b}를 추가한 집합들을 나열한다.
+
 ```
-powerSet(S) // Mission : S의 멱집합 출력하기
+powerSet(P, S) // Mission : S의 멱집합을 구하고, 각각에 집합 P를 합집합하여 출력
 if S is an empty set
-	print nothing;
+	print P;
 else
 	let t be the first element of S;
-	find all subsets of S-{t} by calling powerset(S-{t});
-	print the subsets;
-	print the subsets with adding t;
+	powerSet(P, S-{t});
+	powerSet(Pu{t}, S-{t});
 ```
 
