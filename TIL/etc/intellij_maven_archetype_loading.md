@@ -13,5 +13,3 @@ https://stackoverflow.com/questions/17421103/create-a-maven-project-in-intellij-
 ```
 
 메이븐 dependency 관련해서 꼬여서 에러 나오면 .m2 폴더 지우고 다시 받아보듯이, 이것도 그런류의 문제인 것 같다. (이유는 명확히 모르겠지만 파일이 꼬인 문제)
-
-나중에 정확히 찾아볼 필요가.. 있을지도
