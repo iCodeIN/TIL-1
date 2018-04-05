@@ -26,3 +26,50 @@ spring.http.converters.preferred-json-mapper= # Preferred JSON mapper to use for
 Google 번역기 돌린결과
 HTTP 메시지 변환에 사용할 기본 JSON 매퍼입니다. 기본적으로 환경에 따라 자동 감지됩니다.
 ```
+
+## 그렇게 생각했었으나... (4월 5일 추가)
+
+Swagger와 log 관련 filter & interceptor 들을 적용하자마자 동작하지 않았다.
+
+처음엔 내가 뭔가 잘못 설정했다고 판단하고 열심히 수정해보고 로그도 찍어보고, 중간에 request body를 누가 뺏어먹는거 아닌가 싶은 마음에 InputStream 읽어와서 출력도 해보고..
+
+이걸로 야근하다가 포기하고 집 와서 디버그를 모든 스텝 일일히 들어가보고 돌린 결과, 원인을 찾았다.
+
+몇몇 설정을 위해 WebMvcConfigurationSupport를 상속받아와서 작업한 WebMvcConfig 클래스가 있었고, 이걸로 인해 내가 세팅한 값이 먹통이 되었다.
+
+AbstractMessageConverterMethodArgumentResolver 라는 클래스를 보면, 다음과 같은 코드가 있다.
+
+```java
+try {
+    message = new EmptyBodyCheckingHttpInputMessage(inputMessage);
+
+    for (HttpMessageConverter<?> converter : this.messageConverters) {
+        Class<HttpMessageConverter<?>> converterType = (Class<HttpMessageConverter<?>>) converter.getClass();
+        GenericHttpMessageConverter<?> genericConverter =
+                (converter instanceof GenericHttpMessageConverter ? (GenericHttpMessageConverter<?>) converter : null);
+        if (genericConverter != null ? genericConverter.canRead(targetType, contextClass, contentType) :
+                (targetClass != null && converter.canRead(targetClass, contentType))) {
+...생략...
+
+    return body;
+}
+```
+디버그 돌려가지고 여기에 있는 messageConverters 리스트를 확인해보니, 내가 설정한 GsonHttpMessageConverter가 들어가있지 않았다. ㅠㅠ
+
+그래서 WebMvcConfigurationSupport에 있는 `configureMessageConverters(List<HttpMessageConverter<?>> converters)` 메서드를 오버라이드 해서 직접 넣어주면 해결이 될까 싶어서 시도한 결과 성공했다.
+
+```java
+@Configuration
+public class asdf1234WebMvcConfig extends WebMvcConfigurationSupport {
+    
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new GsonHttpMessageConverter());
+        super.configureMessageConverters(converters);
+    }
+}
+```
+
+다시 디버그를 돌려보니 messageConverters 리스트에 Gson 컨버터가 들어간 것을 확인할 수 있었다.
+
+다음에 이런 경우가 있으면 무작정 검색만 해보지 말고, 이번처럼 디버그를 꼼꼼하게 해보도록 노력해야겠다.
