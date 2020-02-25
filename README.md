@@ -33,6 +33,7 @@
 * 타입스크립트 퀵스타트 책 읽고 정리하기
     * [챕터 3 - 변수 선언과 기본 타입](https://github.com/joshua-qa/CS_TIL/blob/master/TIL/Typescript/ts-quickstart-chapter3.md)
     * [챕터 4 - 제어문](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter4.md)
+    * [챕터 5 - 연산자](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter5.md)
 
 ### Web
 재분류 필요
