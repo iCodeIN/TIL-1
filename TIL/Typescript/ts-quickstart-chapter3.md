@@ -1,6 +1,6 @@
-## 타입스크립트 퀵스타트 챕터 3
+# 타입스크립트 퀵스타트 챕터 3
 
-### 변수 선언
+## 변수 선언
 
 * var 선언자의 특징
   * 호이스팅
@@ -61,7 +61,7 @@
     * let, const
     * class, interface, type alias, enum
 
-### 타입 검사와 타입 선언
+## 타입 검사와 타입 선언
 * 언어에서 수행하는 타입 검사는 크게 정적 타입 검사와 동적 타입 검사가 있음
 * 점진적 타입 검사
   * 타입스크립트와 파이썬 등이 지원하는 방식
@@ -78,7 +78,7 @@
   * 계층도는 책 또는 [이곳](https://www.google.com/search?q=typescript+type+hierarchy&source=lnms&tbm=isch&sa=X&ved=2ahUKEwicnYHPvOfnAhUJrpQKHYnLDR4Q_AUoAXoECA0QAw&biw=1920&bih=937)을 참고
   * 최상위 타입은 any
 
-#### 타입
+### 타입
 * 기본 타입 (primitive types)
   * string, number, boolean 같은 내장 타입들
 * 객체 타입
@@ -106,7 +106,7 @@
 
 
 
-#### 변수에 타입 지정
+### 변수에 타입 지정
 * 형식
   * `var <변수 식별자>:<타입> = <값>;`
   * `var width: number = 10;`
@@ -148,7 +148,7 @@
     * 속성 접근 : `let food1 = Food.Pizza`
     * 인덱스 접근 : `let food2 = Food["Chicken"]`
 
-#### 타입스크립트 내장 타입
+### 타입스크립트 내장 타입
 * any 타입
   * 어떤 타입의 값도 받아들일 수 있으며, 최소한의 타입 검사만 수행
   * 자바스크립트의 변수 선언과 동일한 동작을 수행
@@ -212,7 +212,7 @@
       * https://www.typescriptlang.org/docs/handbook/compiler-options.html
   * null은 object로 간주되며, undefined는 아직 초기화되지 않음을 의미함
 
-### 느낀 점
+## 느낀 점
 
 하루만에 챕터 3을 끝냈는데, 생각 이상으로 ES에 대해 잘 설명해주고 있는 책인 것 같다.
 
