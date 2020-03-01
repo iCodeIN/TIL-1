@@ -34,6 +34,7 @@
     * [챕터 3 - 변수 선언과 기본 타입](https://github.com/joshua-qa/CS_TIL/blob/master/TIL/Typescript/ts-quickstart-chapter3.md)
     * [챕터 4 - 제어문](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter4.md)
     * [챕터 5 - 연산자](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter5.md)
+    * [챕터 6 - 함수](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter6.md)
 
 ### Web
 재분류 필요
