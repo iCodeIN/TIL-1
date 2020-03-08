@@ -35,6 +35,7 @@
     * [챕터 4 - 제어문](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter4.md)
     * [챕터 5 - 연산자](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter5.md)
     * [챕터 6 - 함수](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter6.md)
+    * [챕터 7 - 클래스와 인터페이스 (작성중)](https://github.com/joshua-qa/TIL/blob/master/TIL/Typescript/ts-quickstart-chapter7.md)
 
 ### Web
 재분류 필요
